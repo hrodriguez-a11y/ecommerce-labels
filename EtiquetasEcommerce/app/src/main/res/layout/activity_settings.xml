@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Impresora (Zebra por red)" android:textStyle="bold" android:textSize="18sp" android:paddingTop="16dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="IP de la impresora" android:paddingTop="8dp" />
+        <EditText android:id="@+id/ip" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="phone" android:hint="192.168.1.50" android:singleLine="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Puerto" android:paddingTop="8dp" />
+        <EditText android:id="@+id/port" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="number" android:hint="9100" android:singleLine="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Resolución (dpi): 203 o 300" android:paddingTop="8dp" />
+        <EditText android:id="@+id/dpi" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="number" android:hint="203" android:singleLine="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ancho de etiqueta (mm)" android:paddingTop="8dp" />
+        <EditText android:id="@+id/width" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="number" android:hint="100" android:singleLine="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Alto de etiqueta (mm)" android:paddingTop="8dp" />
+        <EditText android:id="@+id/height" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="number" android:hint="150" android:singleLine="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Copias por escaneo" android:paddingTop="8dp" />
+        <EditText android:id="@+id/copies" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="number" android:hint="1" android:singleLine="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Umbral de negro (1-254, más alto = más oscuro)" android:paddingTop="8dp" />
+        <EditText android:id="@+id/threshold" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="number" android:hint="140" android:singleLine="true" />
+        <CheckBox android:id="@+id/autoRotate" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Girar automáticamente si la imagen viene apaisada" />
+        <Button android:id="@+id/btnTest" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Imprimir etiqueta de prueba" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Origen de las etiquetas" android:textStyle="bold" android:textSize="18sp" android:paddingTop="16dp" />
+        <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <RadioButton android:id="@+id/rbFolder" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Carpeta en el equipo" />
+            <RadioButton android:id="@+id/rbUrl" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Servidor web (URL)" />
+        </RadioGroup>
+        <LinearLayout android:id="@+id/folderBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <TextView android:id="@+id/folderLabel" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingTop="4dp" />
+            <Button android:id="@+id/btnFolder" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Elegir carpeta de etiquetas" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#757575"
+                android:text="Cada archivo se tiene que llamar igual que el código escaneado: 1234567.png / .jpg" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/urlBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <EditText android:id="@+id/url" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="textUri" android:singleLine="true" android:hint="http://servidor/etiquetas/{codigo}.png" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="#757575"
+                android:text="{codigo} se reemplaza por lo escaneado." />
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Escáner (avanzado)" android:textStyle="bold" android:textSize="18sp" android:paddingTop="16dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Acción del broadcast" android:paddingTop="8dp" />
+        <EditText android:id="@+id/scanAction" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="text" android:hint="android.intent.ACTION_DECODE_DATA" android:singleLine="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Extra con el código" android:paddingTop="8dp" />
+        <EditText android:id="@+id/scanExtra" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="text" android:hint="barcode_string" android:singleLine="true" />
+        <Button android:id="@+id/btnSave" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:text="Guardar" />
+    </LinearLayout>
+</ScrollView>
